@@ -4,6 +4,8 @@ import static java.lang.System.out;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
+
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -32,23 +34,23 @@ public class StatusTest {
 	@Ignore
 	public void addStatusTest(){
 		Status obj = new Status();
-		obj.setstatusId(912);
+		obj.setstatusId(911);
 		obj.setstatusName("Dispatched");
 		boolean r=statusDaoObj.addStatus(obj);
 		assertTrue("Problem in Adding Status", r);
 	}
 	
 	@Test
-	
+	@Ignore
 	public void udpateStatusTest(){
-		boolean r=statusDaoObj.updateStatus("Dispatched to vendor");
+		boolean r=statusDaoObj.updateStatus("Dispatched to seller");
 		assertTrue("Problem in Adding Status", r);
 	}
 	
 	@Test
-	@Ignore
+	
 	public void getstatusByIdTest(){
-		Status statusObj=statusDaoObj.viewStatus(911);
+		List<Status> statusObj=statusDaoObj.viewStatus();System.out.println(statusObj);
 		assertNotNull("status with given id doesnt exist", statusObj);
 	}
 	

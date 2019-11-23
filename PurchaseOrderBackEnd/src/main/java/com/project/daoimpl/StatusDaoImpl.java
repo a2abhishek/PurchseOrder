@@ -1,13 +1,17 @@
 package com.project.daoimpl;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.project.daos.StatusDao;
+import com.project.models.Status;
 import com.project.models.Status;
 
 @Repository("StatusDao")
@@ -31,35 +35,36 @@ public class StatusDaoImpl implements StatusDao {
 		return false;
 	}
 	
+
 	@Override
-	public boolean updateStatus(String statusName) {
-		 try {
-	            Session session = sessionFactory.getCurrentSession();
-	            session.update(statusName);
-	            session.close();
-	            return true;
-	        }
-	        catch (Exception e) {
-	        	e.printStackTrace();
-
-	        }
-
-	        return false;
+	public List<Status> viewStatus() {
+		try {
+			Session session = sessionFactory.getCurrentSession();
+			Query q = session.createQuery("from com.project.models.Status where status_id =911");
+			List<Status> StatusList = q.list();
+			return StatusList;
+			}
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+			return null;
+			
 	}
 
-	@Override
-	public Status viewStatus(int statusId) {
-		try {
-            Session session=sessionFactory.getCurrentSession();
-            Status st=session.get(Status.class,statusId);
-            session.close();
 
-            return st;
-            }
-            catch(Exception e) {
-                e.printStackTrace();
-            }
-		return null;
+	@Override
+	public boolean updateStatus(String statusName) {
+		try {
+			Session session=sessionFactory.getCurrentSession();
+			Query query = session.createQuery("update com.project.models.Status set status_name=:x where id=911");
+			query.setParameter("x", statusName);
+			int result = query.executeUpdate();
+			return true;
+		}
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+	return false;
 	}
 
 }

@@ -82,7 +82,7 @@ public class ProductsDaoImpl implements ProductDao {
         try {
             Session session=sessionFactory.getCurrentSession();
             Query q = session.createQuery("from com.project.models.Products where product_name=:x");
-            q.setParameter('x', productName);
+            q.setParameter("x", productName);
             List productList = q.list();
 			if(productList.size()!=0) {
 					return (Products)productList.get(0);

@@ -17,11 +17,6 @@ public class StatusServiceImpl implements StatusService {
 	@Autowired
 	StatusDao statusDao;
 	
-	@Override
-	public boolean updateStatus(String statusName) {
-		// TODO Auto-generated method stub
-		return updateStatus(statusName);
-	}
 
 	@Override
 	public Status viewStatus(int statusId) {
@@ -33,6 +28,12 @@ public class StatusServiceImpl implements StatusService {
 	public boolean addStatus(Status statusObj) {
 		// TODO Auto-generated method stub
 		return addStatus(statusObj);
+	}
+
+	@Override
+	public boolean updateStatus(String statusName) {
+		
+		return updateStatus(statusName);
 	}
 
 }
