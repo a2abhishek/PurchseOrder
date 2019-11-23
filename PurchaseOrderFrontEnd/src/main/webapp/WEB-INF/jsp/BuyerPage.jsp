@@ -4,14 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>HomePage</title>
+<title>Buyer Page</title>
 </head>
 <body>
-<h2>${msg} </h2>
 
-<a href="getRegister">Registration</a>
-<a href="getLogin">Login</a>
-
+<div align="center" >
+<h1>Login Buyer</h1>
+</div>
 
 </body>
 </html>

@@ -35,28 +35,28 @@
 		
 		<div align="center">
 			<h1>Registration</h1>
-			<f:form action="registerUser" method="post" modelAttribute="buyerObj">
+			<f:form action="registerUser" method="post" modelAttribute="userObj">
 			<table>
 				<tr>
-					<td>Buyer Name : </td>
-					<td><f:input path="buyerName" id="buyerName"/>
+					<td>Name : </td>
+					<td><f:input path="userName" id="userName"/>
 				</tr>
 				
 				<tr>
 					<td>Email : </td>
-					<td><f:input path="email" id = "email"/>
+					<td><f:input path="userEmail" id = "email"/>
 				</tr>
 				<tr>
 					<td>Mobile Number : </td>
-					<td><f:input path="mobile" id = "phone"/>
+					<td><f:input path="userPhone" id = "phone"/>
 				</tr>
 				<tr>
 					<td>Password : </td>
-					<td><f:password path="pass" id = "pass"/>
+					<td><f:password path="userPass" id = "pass"/>
 				</tr>
 				<tr>
 					<td>Address : </td>
-					<td><f:input path="addr" id = "addr"/>
+					<td><f:input path="userAddress" id = "addr"/>
 				</tr>
 				<tr>
 					<td></td>

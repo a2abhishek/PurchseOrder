@@ -1,100 +1,96 @@
 package com.project.models;
 
+
 import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="User")
+@Table(name="Users")
 public class User {
+
+
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="User_Id")
-    private int UserId;
-    
+	private int  userId;
+	
 	@Column(name="User_Name")
-    private String UserName;
+	private String userName;
 	
-	@Column(name="Email")
-	private String email;
+	@Column(name="User_Email")
+	private String userEmail;
+			
+	@Column(name="User_Address")
+	private String userAddress;
 	
-	@Column(name="Mobile_No")
-    private long mobile;
+	@Column(name="User_Mobile")
+	private long userPhone;
+
+	@Column(name="User_IsActive")
+	private String isActive;
 	
-	@Column(name="password")
-    private String password;
+	@Column(name="Created_Date")
+	private LocalDate createdDate;
 	
-	@Column(name="Address")
-    private String address;
+	@Column(name="Updated_Date")
+	private LocalDate updatedDate;
 	
-	@Column(name="Is_Active")
-    private String isActive;
+	@Column(name="Created_By")
+	private String createdBy;
 	
-	@Column(name="created_by")
-    private String createdBy;
+	@Column(name="Updated_By")
+	private String updatedBy;
 	
-	@Column(name="created_date")
-    private LocalDate createdDate;
+	@Column(name="User_password")
+	private String userPass;
 	
-	@Column(name="updated_by")
-    private String updatedBy;
-	
-	@Column(name="updated_date")
-    private LocalDate updatedDate;
-	
-	@Column(name="role_name")
-    private int roleName;
+	@Column(name="User_Role")
+	private String role;
 
 	public int getUserId() {
-		return UserId;
+		return userId;
 	}
 
-	public void setUserId(int UserId) {
-		this.UserId = UserId;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getUserName() {
-		return UserName;
+		return userName;
 	}
 
-	public void setUserName(String UserName) {
-		this.UserName = UserName;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 
-	public String getEmail() {
-		return email;
+	public String getUserEmail() {
+		return userEmail;
 	}
 
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
 
-	public long getMobile() {
-		return mobile;
+	public String getUserAddress() {
+		return userAddress;
 	}
 
-	public void setMobile(long mobile) {
-		this.mobile = mobile;
+	public void setUserAddress(String userAddress) {
+		this.userAddress = userAddress;
 	}
 
-	public String getPass() {
-		return password;
+	public long getUserPhone() {
+		return userPhone;
 	}
 
-	public void setPass(String password) {
-		this.password = password;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddr(String address) {
-		this.address = address;
+	public void setUserPhone(long userPhone) {
+		this.userPhone = userPhone;
 	}
 
 	public String getIsActive() {
@@ -105,28 +101,12 @@ public class User {
 		this.isActive = isActive;
 	}
 
-	public String getCreatedBy() {
-		return createdBy;
-	}
-
-	public void setCreatedBy(String createdBy) {
-		this.createdBy = createdBy;
-	}
-
 	public LocalDate getCreatedDate() {
 		return createdDate;
 	}
 
 	public void setCreatedDate(LocalDate createdDate) {
 		this.createdDate = createdDate;
-	}
-
-	public String getUpdatedBy() {
-		return updatedBy;
-	}
-
-	public void setUpdatedBy(String updatedBy) {
-		this.updatedBy = updatedBy;
 	}
 
 	public LocalDate getUpdatedDate() {
@@ -137,21 +117,45 @@ public class User {
 		this.updatedDate = updatedDate;
 	}
 
-	public int getRoleId() {
-		return roleName;
+	public String getCreatedBy() {
+		return createdBy;
 	}
 
-	public void setRoleId(int roleName) {
-		this.roleName = roleName;
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public String getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(String updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	public String getUserPass() {
+		return userPass;
+	}
+
+	public void setUserPass(String userPass) {
+		this.userPass = userPass;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	@Override
 	public String toString() {
-		return "User [UserId=" + UserId + ", UserName=" + UserName + ", email=" + email + ", mobile=" + mobile
-				+ ", pass=" + password + ", address=" + address + ", isActive=" + isActive + ", createdBy=" + createdBy
-				+ ", createdDate=" + createdDate + ", updatedBy=" + updatedBy + ", updatedDate=" + updatedDate
-				+ ", roleName=" + roleName + "]";
-	} 
-    
+		return "User [userId=" + userId + ", userName=" + userName + ", userEmail=" + userEmail + ", userAddress="
+				+ userAddress + ", userPhone=" + userPhone + ", isActive=" + isActive + ", createdDate=" + createdDate
+				+ ", updatedDate=" + updatedDate + ", createdBy=" + createdBy + ", updatedBy=" + updatedBy
+				+ ", userPass=" + userPass + ", role=" + role + "]";
+	}
+	
 	
 }

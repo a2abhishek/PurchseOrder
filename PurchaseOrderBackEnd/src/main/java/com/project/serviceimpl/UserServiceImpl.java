@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
 		uobj.setIsActive("Y");
 		uobj.setCreatedDate(LocalDate.now());
 		uobj.setCreatedBy("System");
-		uobj.setRoleId(1);
+		uobj.setRole("Buyer");
 		return userdao.registerUser(uobj);
 	}
 
@@ -50,5 +50,17 @@ public class UserServiceImpl implements UserService {
 	public boolean updateUser(User userObj) {
 		// TODO Auto-generated method stub
 		return userdao.updateUser(userObj);
+	}
+
+	@Override
+	public User getUserByRole(String role) {
+		// TODO Auto-generated method stub
+		return userdao.getUserByRole(role);
+	}
+
+	@Override
+	public User validateUser(String email, String password) {
+		// TODO Auto-generated method stub
+		return userdao.validateUser(email, password);
 	}
 }

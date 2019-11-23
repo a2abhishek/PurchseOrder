@@ -10,4 +10,6 @@ public interface UserService {
 	public boolean deleteUser(User userObj);
 	public User getUserByName(String userName);
 	public boolean updateUser(User userObj);
+	public User getUserByRole(String role);
+	public User validateUser(String email, String password);
 }

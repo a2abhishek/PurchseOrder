@@ -89,6 +89,45 @@ public class UserDaoImpl implements UserDao {
             }
         return null;
     }
+
+	@Override
+	public User getUserByRole(String role) {
+		 try {
+	            Session session=sessionFactory.getCurrentSession();
+	            User pro=session.get(User.class,role);
+	            return pro;
+	            }
+	            catch(Exception e) {
+	                e.printStackTrace();
+	            }
+		return null;
+	}
 	
-	
+	@Override
+	public User validateUser(String email, String password) {
+		try {
+			Session session = sessionFactory.getCurrentSession();
+			Query query = session.createQuery("from com.project.models.User where User_Email=:email and User_password=:password");
+			query.setParameter("email", email);
+			query.setParameter("password",password);
+			
+			List<User> list = query.list();
+			if(list.size()==0)
+			{
+				session.close();
+			}
+			else
+			{
+				if(list.size()!=0)
+				{
+					return list.get(0);
+				}
+			}}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+			}
+			
+		return null;
+	}
 }

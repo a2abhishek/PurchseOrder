@@ -36,16 +36,18 @@ public class ProductServiceImpl implements ProductService {
 		return productDao.deleteProduct(productObj);
 	}
 
-	@Override
-	public Products getProductByName(String productName) {
-		// TODO Auto-generated method stub
-		return productDao.getProductByName(productName);
-	}
+	
 
 	@Override
 	public boolean updateProduct(Products productObj) {
 		// TODO Auto-generated method stub
 		return productDao.updateProduct(productObj);
+	}
+
+	@Override
+	public Products getProductByName(String productName) {
+		// TODO Auto-generated method stub
+		return getProductByName(productName);
 	}
 
 }

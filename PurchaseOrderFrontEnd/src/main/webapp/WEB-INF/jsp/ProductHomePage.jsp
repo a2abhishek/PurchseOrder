@@ -14,9 +14,7 @@
 
 </head>
 <body>
-
-
-       <a href="getRegister">registration</a>
+       <a href="getRegister">add </a>
        <a href="getRegister">registration</a>
        <a href="getRegister">registration</a>
        <a href="getRegister">registration</a>

@@ -38,6 +38,7 @@ public class ProductTest {
 	}
 	
 	@Test
+	@Ignore
 	public void addProductTest(){
 		Products p=new Products();
 		p.setProductName("Realme X2 Pro");
@@ -64,7 +65,6 @@ public class ProductTest {
 		Assert.assertNotEquals("Not Users Found...", uList.size(), 0);
 	}
 	@Test
-	@Ignore
 	public void deleteProducts(){
 		boolean uObj=productDaoObj.deleteProduct(productDaoObj.getProductByName("Realme X2 Pro"));
 		assertNotNull("User with given id doesnt exist", uObj);
