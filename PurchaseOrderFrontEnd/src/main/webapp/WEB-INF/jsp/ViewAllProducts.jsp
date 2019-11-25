@@ -27,20 +27,23 @@
 			<thead>
 				<tr>
 					<th>Product Name</th>
-					<th>Available Quantity</th>
+					<th>Product Description</th>
+					<th>Product Price</th>
+					
 
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${productDetails}" var="obj">
 				<tr>
+					
+					<td>${obj.productName}</td>
 					<td>
-						${obj.productObj.productName}
+						${obj.productDesc}
 					</td>
-					<td>
-						${obj.quantity}
-					</td>
-				</tr>
+					<td>${obj.productPrice}</td>
+					
+</tr>
 	</c:forEach>
 			</tbody>
 		</table>

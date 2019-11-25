@@ -34,10 +34,10 @@ public class Products {
 	public void setProductName(String productName) {
 		this.productName = productName;
 	}
-	public String getProductDes() {
+	public String getProductDesc() {
 		return productDesc;
 	}
-	public void setProductDes(String productDesc) {
+	public void setProductDesc(String productDesc) {
 		this.productDesc = productDesc;
 	}
 	public double getProductPrice() {

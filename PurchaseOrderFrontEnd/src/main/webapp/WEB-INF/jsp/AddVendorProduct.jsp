@@ -21,30 +21,42 @@
 </head>
 <body>
 	<div class="container">
-		<h1 style="color: green;">Product List</h1>
-		
+		<h1 style="color: green;">Add Quantity</h1>
+		<f:form action="updateProductQuantity" method="post">
 		<table class="table table-borderless  table table-hover table-dark">
 			<thead>
 				<tr>
-					<th>Product Name</th>
-					<th>Available Quantity</th>
+					<th>select the Items</th>
+					<th>select the Quantity</th>
 
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${productDetails}" var="obj">
 				<tr>
 					<td>
-						${obj.productObj.productName}
-					</td>
-					<td>
-						${obj.quantity}
-					</td>
+						<select class="form-control" name="pId">
+						<option value="0">Select your products</option>
+						<c:forEach items="${productDetails}" var="obj">
+						<option value="${obj.productId}"> 
+						${obj.productName} 
+						</option>
+						</c:forEach>
+						</select>
+						
+						</td>
+					<td><input  type="number" min="0" pattern="\d*"  class="form-control" placeholder="Quantity" name="quantity" required/></td>
+
+					
 				</tr>
-	</c:forEach>
+				<tr>
+					<td></td>
+					<td></td>
+					<td><input type="submit" value="Add"	class="btn btn-primary" /></td>
+				</tr>
+
 			</tbody>
 		</table>
-
+		</f:form>
 	</div>
 	</body>
 </html>

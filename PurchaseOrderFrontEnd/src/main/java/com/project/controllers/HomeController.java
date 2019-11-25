@@ -70,12 +70,13 @@ public class HomeController {
 	public String validateUser(@RequestParam String email ,@RequestParam String password)
 	{
 		User uObj = userService.validateUser(email, password);
-		session.setAttribute("uObj",uObj);
+		
 		if(uObj==null)
 		{
 			return "RegisterForm";
 		}
 		else {
+			session.setAttribute("uObj",uObj);
 			if(uObj.getRole().equals("Buyer") && uObj.getIsActive().equals("Y"))
 			{
 			
