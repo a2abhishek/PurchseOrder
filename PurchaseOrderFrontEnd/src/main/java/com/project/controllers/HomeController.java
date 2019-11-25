@@ -1,5 +1,7 @@
 package com.project.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.daos.PurchaseOrderDao;
+import com.project.models.PurchaseOrder;
 import com.project.models.User;
 import com.project.service.UserService;
 
@@ -65,9 +69,11 @@ public class HomeController {
 	
 	//============================Login Validations=============================	
 	
+	@Autowired
+	PurchaseOrderDao poObj;
 	
 	@RequestMapping(value="/signIn", method =RequestMethod.POST)
-	public String validateUser(@RequestParam String email ,@RequestParam String password)
+	public String validateUser(@RequestParam String email ,@RequestParam String password,ModelMap map)
 	{
 		User uObj = userService.validateUser(email, password);
 		
@@ -79,7 +85,8 @@ public class HomeController {
 			session.setAttribute("uObj",uObj);
 			if(uObj.getRole().equals("Buyer") && uObj.getIsActive().equals("Y"))
 			{
-			
+			List<PurchaseOrder> obj = poObj.viewAllPo();
+			map.addAttribute("poObj", obj);
 			return "BuyerPage";
 			}
 			else if(uObj.getRole().equals("Vendor") && uObj.getIsActive().equals("Y")) {
@@ -87,8 +94,8 @@ public class HomeController {
 				return "VendorPage";
 			}
 			
-			else if(uObj.getRole().equals("Sellor") && uObj.getIsActive().equals("Y"))
-			{
+			else if(uObj.getRole().equals("Seller") && uObj.getIsActive().equals("Y")) {
+				
 				return "SellerPage";
 			}
 			return "Error Page";

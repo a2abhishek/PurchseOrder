@@ -8,7 +8,7 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Table_VendorProject")
+@Table(name="Table_VendorProducts")
 public class VendorProduct {
 	
 	@Id

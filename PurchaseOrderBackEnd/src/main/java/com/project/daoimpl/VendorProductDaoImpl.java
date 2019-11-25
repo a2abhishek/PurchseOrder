@@ -46,7 +46,7 @@ public class VendorProductDaoImpl implements VendorProductDao {
 
 			Session session=sessionFactory.getCurrentSession();
 
-			Query query=session.createQuery("from com.project.model.VendorProduct where vendorId="+id);
+			Query query=session.createQuery("from com.project.models.VendorProduct where vendorId="+id);
 
 			return query.list();
 
@@ -82,7 +82,7 @@ public class VendorProductDaoImpl implements VendorProductDao {
 
 			Session session=sessionFactory.getCurrentSession();
 
-			Query query=session.createQuery("from com.project.model.VendorProduct where vendorId=:x and productId=:y");
+			Query query=session.createQuery("from com.project.models.VendorProduct where vendorId=:x and productId=:y");
 			query.setParameter("x",vendorId);
 			query.setParameter("y",productId);
 			List list=query.list();

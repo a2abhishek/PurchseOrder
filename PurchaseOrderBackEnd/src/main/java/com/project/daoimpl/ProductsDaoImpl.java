@@ -94,4 +94,16 @@ public class ProductsDaoImpl implements ProductDao {
         return null;
     }
 
+	@Override
+	public Products getProductById(int productId) {
+		try {
+			Session session=sessionFactory.getCurrentSession();
+			Products pro=session.get (Products.class,productId);
+			return pro;
+			}
+			catch(Exception e){
+				e.printStackTrace();
+			}
+			return null;	
+	}
 }

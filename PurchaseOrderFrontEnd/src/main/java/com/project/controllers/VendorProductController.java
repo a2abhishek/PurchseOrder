@@ -34,11 +34,11 @@ public class VendorProductController {
 		
 		User userObj=(User)session.getAttribute("uObj");  
 		System.out.println(session.getAttribute("uObj"));
-		int vendorId=userObj.getUserId();                      //fetch user's id through session 
+		int vendorId=userObj.getUserId();                      						    //fetch user's id through session 
 		
-		map.addAttribute("productDetails", vendorDaoObj.getAllProducts(vendorId));    //view products added by vendor getallProducts method in VendorProductDao
+		map.addAttribute("productDetails", vendorDaoObj.getAllProducts(vendorId));      //view products added by vendor getallProducts method in VendorProductDao
 				
-		return "ViewVendorProducts";      //return view product
+		return "ViewVendorProducts";      											    //return view product
 
 	}
 	
@@ -46,9 +46,8 @@ public class VendorProductController {
 	@RequestMapping(value = "/viewAllProducts", method = RequestMethod.GET)
 	public String viewAllProducts(ModelMap map) {
 		
-		map.addAttribute("productDetails", productDaoObj.viewAllProducts());   //call to method to view all products
-		System.out.println("here");
-		return "ViewAllProducts";    //jsp page showing all products detail
+		map.addAttribute("productDetails", productDaoObj.viewAllProducts());   		    //call to method to view all products
+		return "ViewAllProducts";    													//JSP page showing all products detail
 	}
 	
 	
@@ -56,7 +55,7 @@ public class VendorProductController {
 	//get add or update quantity form
 	@RequestMapping(value="/updateProductQuantity",method=RequestMethod.GET)
 	public String getUpdateQuantityForm(ModelMap map) {
-		map.addAttribute("productDetails", productDaoObj.viewAllProducts());   //fetch details in drop down menu
+		map.addAttribute("productDetails", productDaoObj.viewAllProducts());   			//Product details in drop down menu
  		return "AddVendorProduct";    //open form
 	}
 
@@ -66,19 +65,19 @@ public class VendorProductController {
 	@RequestMapping(value="/updateProductQuantity",method=RequestMethod.POST)
 	public ModelAndView addInVendorproductTable(@RequestParam int pId  , @RequestParam int quantity)
 	{
-		User userObj=(User)session.getAttribute("uObj");		 //get id from session
-		VendorProduct r=vendorDaoObj.checkProductForVendor(userObj.getUserId(), pId);  //check for product already added if already present then update the quantity else add the quantity
+		User userObj=(User)session.getAttribute("uObj");							 	//Get userId from session
+		VendorProduct r=vendorDaoObj.checkProductForVendor(userObj.getUserId(), pId);   //check if product is already added, if present then update the quantity else add the quantity
 		if(r!=null) {
-			r.setQuantity(r.getQuantity()+quantity);      //already present then add quantity to existing value
+			r.setQuantity(r.getQuantity()+quantity);      								//Quantity added to existing product's quantity
 		}
 		else {
-			r = new VendorProduct();				//else create new object and set values 
+			r = new VendorProduct();													//else create new row for vendor product and set values 
 			r.setVendorId(userObj.getUserId());
 			r.setProductId(pId);
 			r.setQuantity(quantity);
 		}
 		
-		vendorDaoObj.add(r);                    //call add method from dao
+		vendorDaoObj.add(r);                    										//call add method from VendorProductDao
 		
 		ModelAndView mv=new ModelAndView("VendorPage");
 		mv.addObject("msg","Product Quantity Added Succesfully");

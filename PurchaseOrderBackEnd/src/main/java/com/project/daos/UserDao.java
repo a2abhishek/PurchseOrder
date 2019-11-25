@@ -12,4 +12,5 @@ public interface UserDao {
 	public boolean updateUser(User userObj);
 	public User getUserByRole(String role);
 	public User validateUser(String email, String password);
+	public User getSeller();
 }

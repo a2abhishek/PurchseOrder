@@ -42,7 +42,7 @@ public class ProductTest {
 	public void addProductTest(){
 		Products p=new Products();
 		p.setProductName("Realme X2 Pro");
-		p.setProductDes("Realme Flagship phones");
+		p.setProductDesc("Realme Flagship phones");
 		p.setProductPrice(30000);		
 	
 		boolean r=productDaoObj.addProduct(p);
