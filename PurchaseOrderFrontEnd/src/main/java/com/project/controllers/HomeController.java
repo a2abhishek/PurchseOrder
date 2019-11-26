@@ -3,10 +3,13 @@ package com.project.controllers;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -14,8 +17,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.daos.PurchaseOrderDao;
+import com.project.daos.UserDao;
 import com.project.models.PurchaseOrder;
 import com.project.models.User;
+import com.project.service.PurchaseOrderService;
 import com.project.service.UserService;
 
 
@@ -23,11 +28,12 @@ import com.project.service.UserService;
 public class HomeController {
 	
 	@Autowired
-	UserService userService;
+	UserDao userService;
 	
 	@Autowired
 	HttpSession session;
 	
+	private static final Logger logger = Logger.getLogger(HomeController.class);
 	//===================HomePage========================
 	
 	@RequestMapping(value="/",method=RequestMethod.GET)
@@ -42,12 +48,31 @@ public class HomeController {
 	//==============================Register Page==========================
 	
 	@RequestMapping(value = "/getRegister", method = RequestMethod.GET)
-	public String registerUser(ModelMap map) {
+	public ModelAndView registerUser(@Valid @ModelAttribute("buyerObj") User userObj, BindingResult result) {
 
-		map.addAttribute("userObj", new User());
-		
-		return "Register";
-	}	
+			if (result.hasErrors()) {
+
+				System.out.println(result.getAllErrors());
+
+				ModelAndView mv = new ModelAndView("Register");
+				mv.addObject("error", "User has not registered");
+				return mv;
+			}
+
+			try {
+				ModelAndView mv = new ModelAndView("Login");
+				mv.addObject("login", new User());
+				userService.registerUser(userObj);
+				mv.addObject("msg", "User has been registered succesfully. Now u can Login");
+				return mv;
+
+			} catch (Exception e) {
+				e.printStackTrace();
+				logger.error("error in registerUserDetailcontroller" + e.getMessage());
+			}
+			return null;
+
+		}
 	
 	//===============================Login Page=========================
 	@RequestMapping(value = "/getLogin", method = RequestMethod.GET)
@@ -88,6 +113,7 @@ public class HomeController {
 			List<PurchaseOrder> obj = poObj.viewAllPo();
 			map.addAttribute("poObj", obj);
 			return "BuyerPage";
+			
 			}
 			else if(uObj.getRole().equals("Vendor") && uObj.getIsActive().equals("Y")) {
 				
@@ -100,5 +126,12 @@ public class HomeController {
 			}
 			return "Error Page";
 		}
+	}
+	
+	@RequestMapping(value="/getLogout",method=RequestMethod.GET)
+	public String logout(ModelMap map ) {
+		session.invalidate();
+	return "Login";
+
 	}
 }

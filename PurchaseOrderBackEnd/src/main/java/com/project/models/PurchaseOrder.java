@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
@@ -21,14 +22,9 @@ public class PurchaseOrder {
 	@GeneratedValue
 	private int purchaseOrderId;
 	
-	@Column(name="Delivery_Address")
-	private String deliveryAddress;
-	
 	@Column(name="created_Date")
 	private LocalDate createdDate;
 	
-	@Column(name="delivery_Date")
-	private LocalDate deliveryDate;
 	
 	@Column(name="status")
 	private String status;
@@ -41,7 +37,7 @@ public class PurchaseOrder {
 	@JoinColumn(name="Seller_Id")
 	private User sellerObj;
 	
-	@OneToMany(mappedBy="purchaseOrderObj",cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="purchaseOrderObj",cascade=CascadeType.ALL,fetch=FetchType.EAGER)
 	private List<POItems> poItemsObj;
 
 	public int getPurchaseOrderId() {
@@ -52,13 +48,6 @@ public class PurchaseOrder {
 		this.purchaseOrderId = purchaseOrderId;
 	}
 
-	public String getDeliveryAddress() {
-		return deliveryAddress;
-	}
-
-	public void setDeliveryAddress(String deliveryAddress) {
-		this.deliveryAddress = deliveryAddress;
-	}
 
 	public User getBuyerObj() {
 		return buyerObj;
@@ -102,23 +91,9 @@ public class PurchaseOrder {
 		this.createdDate = createdDate;
 	}
 
-	public LocalDate getDeliveryDate() {
-		return deliveryDate;
-	}
-
-	public void setDeliveryDate(LocalDate deliveryDate) {
-		this.deliveryDate = deliveryDate;
-	}
-
 	@Override
 	public String toString() {
-		return "PurchaseOrder [purchaseOrderId=" + purchaseOrderId + ", deliveryAddress=" + deliveryAddress
-				+ ", createdDate=" + createdDate + ", deliveryDate=" + deliveryDate + ", status=" + status
-				+ ", buyerObj=" + buyerObj + ", sellerObj=" + sellerObj + ", poItemsObj=" + poItemsObj + "]";
+		return "PurchaseOrder [purchaseOrderId=" + purchaseOrderId + ", createdDate=" + createdDate + ", status="
+				+ status + ", buyerObj=" + buyerObj + ", sellerObj=" + sellerObj + ", poItemsObj=" + poItemsObj + "]";
 	}
-
-	
-	
-	
-		
 }

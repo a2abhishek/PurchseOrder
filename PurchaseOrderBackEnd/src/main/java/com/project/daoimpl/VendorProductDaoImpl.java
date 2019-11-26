@@ -49,17 +49,13 @@ public class VendorProductDaoImpl implements VendorProductDao {
 			Query query=session.createQuery("from com.project.models.VendorProduct where vendorId="+id);
 
 			return query.list();
-
-			}
-
-			catch(Exception e){
-
-				e.printStackTrace();
-
-			}
-
 			
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
 
+		
 		return null;
 	}
 

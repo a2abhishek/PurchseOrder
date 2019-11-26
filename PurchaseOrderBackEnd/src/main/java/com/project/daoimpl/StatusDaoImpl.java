@@ -12,7 +12,6 @@ import org.springframework.stereotype.Repository;
 
 import com.project.daos.StatusDao;
 import com.project.models.Status;
-import com.project.models.Status;
 
 @Repository("StatusDao")
 @Transactional

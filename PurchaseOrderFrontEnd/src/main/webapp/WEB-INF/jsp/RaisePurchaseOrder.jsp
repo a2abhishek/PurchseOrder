@@ -18,8 +18,6 @@
 
     $(document).ready(function() {
     	
-    	console.log('Hello 222');
-    	
     	var productName;
         $(".add-row").click(function(){
             var items = $(".name option:selected").val();
@@ -28,7 +26,6 @@
                 productObj=data;
                 var markup = "<tr><td><input type='checkbox' name='record'></td><td>"+items+"</td><td>" + productObj.productName + "</td><td>" + quantity + "</td></td>";
                 $("table").append(markup);
-            	console.log('Hello 2');
               });
         });
         
@@ -107,11 +104,8 @@
 	<div class="collapse navbar-collapse" id="collapsibleNavbar">
 		<ul class="navbar-nav">
 			<li class="nav-item"><a class="nav-link" href="#">Home</a></li>
-			<li class="nav-item"><a class="nav-link" href="getSignUpPage">Registration</a>
-			</li>
-			<li class="nav-item"><a class="nav-link" href="getLoginForm">Login</a>
-			</li>
-			<li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+			
+			<li class="nav-item"><a class="nav-link" href="getLogout">Logout</a></li>
 		</ul>
 	</div>
 	</nav>

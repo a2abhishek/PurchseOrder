@@ -2,10 +2,16 @@ package com.project.serviceimpl;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
+
 import com.project.models.Products;
 import com.project.models.VendorProduct;
 import com.project.service.VendorProductService;
 
+@Service
+@Transactional
 public class VendorProductServiceImpl implements VendorProductService{
 
 	@Override
@@ -16,7 +22,7 @@ public class VendorProductServiceImpl implements VendorProductService{
 
 	@Override
 	public List<Products> getAllProducts(int id) {
-		// TODO Auto-generated method stub
+		
 		return  getAllProducts(id);
 	}
 

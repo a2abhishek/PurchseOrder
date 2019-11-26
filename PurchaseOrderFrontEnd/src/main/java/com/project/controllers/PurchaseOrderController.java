@@ -56,7 +56,7 @@ public class PurchaseOrderController {
 	@RequestMapping(value="/raisePO",method=RequestMethod.POST)
 	public String raisePurchaseOrder(@RequestBody List<POItems> purchaseOrderItemsList,ModelMap map) {
 		System.out.println("Inside Purchase Order >>>");
-		User bObj=(User)session.getAttribute("userObj");
+		User bObj=(User)session.getAttribute("uObj");
 
 		PurchaseOrder po=new PurchaseOrder();
 		po.setCreatedDate(LocalDate.now());
