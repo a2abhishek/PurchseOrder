@@ -8,9 +8,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Register</title>
-	<!-- <script type="text/javascript" src="${js}/addUser.js"></script>
-	<script type="text/javascript" src="${js}/checkName.js"></script>
-		 -->	
+	 <link href="${css}/register.css" rel="stylesheet">
 	<style> 
 		.error {
 			color:#ff0000;
@@ -30,43 +28,39 @@
 	</script>
 	</head>
 	<body>
-		
-		<hr/>
-		
-		<div align="center">
-			<h1>Registration</h1>
-			<f:form action="registerUser" method="post" modelAttribute="userObj">
-			<table>
-				<tr>
-					<td>Name : </td>
-					<td><f:input path="userName" id="userName"/>
-				</tr>
-				
-				<tr>
-					<td>Email : </td>
-					<td><f:input path="userEmail" id = "email"/>
-				</tr>
-				<tr>
-					<td>Mobile Number : </td>
-					<td><f:input path="userPhone" id = "phone"/>
-				</tr>
-				<tr>
-					<td>Password : </td>
-					<td><f:password path="userPass" id = "pass"/>
-				</tr>
-				<tr>
-					<td>Address : </td>
-					<td><f:input path="userAddress" id = "addr"/>
-				</tr>
-				<tr>
-					<td></td>
-					<td>
-						<input type="submit" class="submitForm" value="${btnLabel}" onclick="submitForm()"/>
-					</td>
-				</tr>
-			</table>
+	<div class="login">
+        <h1> Registration Form </h1>
+			<f:form action="registerUser" method="post" modelAttribute="userObj" class="was-validated">
+			<div class="form-group">
+				<table>
+					<tr>
+						<td><label for="userName" style="color: #fff;">Name :</label></td>
+                    	<td><f:input type="text"  path="userName" name="userName" id="userName" size="50" placeholder="Enter User name"  /></td>
+					</tr>
+					
+					<tr>
+						<td><label for="email" style="color: #fff;">Email :</label></td>
+						<td><f:input type="email" path="userEmail" name="email" id="email" size="50"  /></td>
+					</tr>
+					<tr>
+					 	<td><label for="phone" style="color: #fff;">Mobile :</label></td>
+	                    <td><f:input type="text" path="userPhone" name="phone" id="phone" pattern="[0-9]{10}"  /></td>
+					</tr>
+					<tr>
+					<tr>
+	                    <td><label for="password" style="color: #fff;">Password :</label></td>
+	                    <td><f:input type="password" path="userPass" name="password" id="password" size="50"  /></td>
+					<tr>
+						 <td><label for="addr" style="color: #fff;">Address :</label></td>
+	                    <td><f:input type="textarea" path="userAddress" name="addr" id="addr" /></td>
+					</tr>
+					<tr>
+						<td></td>
+	                    <td><button type="submit" class="btn btn-primary btn-block btn-large">Submit</button></td>
+					</tr>
+				</table>
+			</div>
 			</f:form>
 		</div>
-		
 	</body>
 </html>

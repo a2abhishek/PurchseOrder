@@ -18,6 +18,9 @@ public class POItems {
 	@GeneratedValue
 	private int purchaseOrderItemId;
 	
+	@Transient
+	private int productId;
+	
 	@OneToOne
 	@JoinColumn(name="productId")
 	private Products productObj;
@@ -28,9 +31,6 @@ public class POItems {
 	@ManyToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="purchaseOrderId")
 	private PurchaseOrder purchaseOrderObj;
-	
-	@Transient
-	private int productId;
 
 
 	public int getPurchaseOrderItemId() {

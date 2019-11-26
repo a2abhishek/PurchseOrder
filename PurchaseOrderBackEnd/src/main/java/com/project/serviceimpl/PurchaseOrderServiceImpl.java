@@ -1,5 +1,6 @@
 package com.project.serviceimpl;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import com.project.models.PurchaseOrder;
@@ -10,6 +11,7 @@ public class PurchaseOrderServiceImpl implements PurchaseOrderService {
 	@Override
 	public boolean addPo(PurchaseOrder pObj) {
 		pObj.setStatus("send to seller");
+		pObj.setCreatedDate(LocalDate.now());
 		return addPo(pObj);
 	}
 

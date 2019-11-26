@@ -1,5 +1,6 @@
 package com.project.models;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -22,6 +23,12 @@ public class PurchaseOrder {
 	
 	@Column(name="Delivery_Address")
 	private String deliveryAddress;
+	
+	@Column(name="created_Date")
+	private LocalDate createdDate;
+	
+	@Column(name="delivery_Date")
+	private LocalDate deliveryDate;
 	
 	@Column(name="status")
 	private String status;
@@ -86,11 +93,28 @@ public class PurchaseOrder {
 		this.status = status;
 	}
 
+	
+	public LocalDate getCreatedDate() {
+		return createdDate;
+	}
+
+	public void setCreatedDate(LocalDate createdDate) {
+		this.createdDate = createdDate;
+	}
+
+	public LocalDate getDeliveryDate() {
+		return deliveryDate;
+	}
+
+	public void setDeliveryDate(LocalDate deliveryDate) {
+		this.deliveryDate = deliveryDate;
+	}
+
 	@Override
 	public String toString() {
 		return "PurchaseOrder [purchaseOrderId=" + purchaseOrderId + ", deliveryAddress=" + deliveryAddress
-				+ ", status=" + status + ", buyerObj=" + buyerObj + ", sellerObj=" + sellerObj + ", poItemsObj="
-				+ poItemsObj + "]";
+				+ ", createdDate=" + createdDate + ", deliveryDate=" + deliveryDate + ", status=" + status
+				+ ", buyerObj=" + buyerObj + ", sellerObj=" + sellerObj + ", poItemsObj=" + poItemsObj + "]";
 	}
 
 	

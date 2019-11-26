@@ -63,4 +63,10 @@ public class UserServiceImpl implements UserService {
 		// TODO Auto-generated method stub
 		return userdao.validateUser(email, password);
 	}
+
+	@Override
+	public User getSeller() {
+		// TODO Auto-generated method stub
+		return getSeller();
+	}
 }

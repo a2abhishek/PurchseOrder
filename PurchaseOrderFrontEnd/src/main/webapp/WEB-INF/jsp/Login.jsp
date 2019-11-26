@@ -5,31 +5,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Login</title>
+ <link href="${css}/login.css" rel="stylesheet">
 </head>
 <body>
-		<h1 style="text-align: center;font-family: verdana;color: green">
+	<!-- 	<h1 style="text-align: center;font-family: verdana;color: #fff;">
 			${msg}
 		</h1>
-		
-		<hr/>
-		
-		<h1>Sign In</h1>
-		<form action="signIn" method="post">
-			<table>
-				<tr>
-					<td>Email : </td>
-					<td><input type="text" name="email"></td>
-				</tr>
-				<tr>
-					<td>Password :</td>
-					<td><input type="password" name="password"/></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td><input type="submit" value="Sign In"/></td>
-				</tr>
-			</table>
-		</form>
+	 -->	
+		<div class="login">
+		<h1>Login</h1>
+	    	<form method="post" action="signIn">
+	    	<input type="email" name="email" placeholder="Email" required="required" />
+	        <input type="password" name="password" placeholder="Password" required="required" />
+	        <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
+	        </form>
+	        
+	        <form method="post" action="getRegister">
+	        <button type="submit" class="btn btn-primary btn-block btn-large">Register</button>
+    	</form>
+		</div>
 		
 </body>
 </html>
