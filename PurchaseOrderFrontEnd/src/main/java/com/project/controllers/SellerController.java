@@ -56,4 +56,10 @@ public class SellerController {
 		return "SellerViewLineItems";
 	}	
 	
+	@RequestMapping(value="/getSellerLogout",method=RequestMethod.GET)
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "HomePage";
+      }
+	
 }

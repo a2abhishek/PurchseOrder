@@ -5,6 +5,7 @@
 <html>
 <head>
 
+   <link href="${css}/login.css" rel="stylesheet">
 
  <title>Vendor Page</title>
   <meta charset="utf-8">
@@ -25,20 +26,19 @@
 	<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <ul class="navbar-nav">
     <li class="nav-item active">
-      <a class="nav-link" href="">Home</a>
+      <a class="nav-link" href="#">Home</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="viewAllAvailableProducts">View All Available Products</a>
+      <a class="nav-link" href="viewAllAvailableProducts">View All Vendor Products</a>
     </li>
     <li class="nav-item">
       <a class="nav-link" href="viewAllProducts">View All Products</a>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="updateProductQuantity">Update Product Quantity</a>
+      <a class="nav-link" href="addProductQuantity">Update Product Quantity</a>
     </li>
-    <li class="nav-item">
-      <a class="nav-link disabled" href="#">More</a>
-    </li>
+    
+    <li class="nav-item"><a class="nav-link" href="getVendorLogout">Logout</a></li>
   </ul>
 </nav>
 

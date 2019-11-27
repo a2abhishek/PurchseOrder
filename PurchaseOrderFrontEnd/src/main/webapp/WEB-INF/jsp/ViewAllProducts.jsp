@@ -18,17 +18,19 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+   <link href="${css}/login.css" rel="stylesheet">
+	
 </head>
 <body>
 	<div class="container">
-		<h1 style="color: green;">Product List</h1>
+		<h1 style="color: #D98880;">Product List</h1>
 		
 		<table class="table table-borderless  table table-hover table-dark">
 			<thead>
 				<tr>
-					<th>Product Name</th>
-					<th>Product Description</th>
-					<th>Product Price</th>
+					<th style="color: #D98880;" >Product Name</th>
+					<th style="color: #D98880;">Product Description</th>
+					<th style="color: #D98880;">Product Price</th>
 					
 
 				</tr>

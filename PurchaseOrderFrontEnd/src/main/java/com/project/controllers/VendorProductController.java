@@ -53,7 +53,7 @@ public class VendorProductController {
 	
 	
 	//get add or update quantity form
-	@RequestMapping(value="/updateProductQuantity",method=RequestMethod.GET)
+	@RequestMapping(value="/addProductQuantity",method=RequestMethod.GET)
 	public String getUpdateQuantityForm(ModelMap map) {
 		map.addAttribute("productDetails", productDaoObj.viewAllProducts());   			//Product details in drop down menu
  		return "AddVendorProduct";    //open form

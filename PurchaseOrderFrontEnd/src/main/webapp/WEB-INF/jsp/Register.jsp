@@ -12,6 +12,7 @@
 	<style> 
 		.error {
 			color:#ff0000;
+			size: 12px;
 		}
 		
 	</style>
@@ -37,7 +38,7 @@
 					<tr>
 						<td><label for="email" style="color: #fff;">Email :</label></td>
 						<td><f:input type="email" path="userEmail" name="email" id="email" size="50"  /></td>
-						<td><f:errors path="email" cssClass="error" /></td>
+						<td><f:errors path="userEmail" cssClass="error" /></td>
 					</tr>
 					<tr>
 					 	<td><label for="phone" style="color: #fff;">Mobile :</label></td>
@@ -48,7 +49,7 @@
 					<tr>
 	                    <td><label for="password" style="color: #fff;">Password :</label></td>
 	                    <td><f:input type="password" path="userPass" name="password" id="password" size="50"  /></td>
-	                    <td><f:errors path="password" cssClass="error" /></td>
+	                    <td><f:errors path="userPass" cssClass="error" /></td>
 					<tr>
 						 <td><label for="addr" style="color: #fff;">Address :</label></td>
 	                    <td><f:input type="textarea" path="userAddress" name="addr" id="addr" /></td>

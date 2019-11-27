@@ -48,7 +48,7 @@ public class HomeController {
 	//==============================Register Page==========================
 	
 	@RequestMapping(value = "/getRegister", method = RequestMethod.GET)
-	public ModelAndView registerUser(@Valid @ModelAttribute("buyerObj") User userObj, BindingResult result) {
+	public ModelAndView registerUser(@Valid @ModelAttribute("userObj") User userObj, BindingResult result) {
 
 			if (result.hasErrors()) {
 
@@ -98,9 +98,9 @@ public class HomeController {
 	PurchaseOrderDao poObj;
 	
 	@RequestMapping(value="/signIn", method =RequestMethod.POST)
-	public String validateUser(@RequestParam String email ,@RequestParam String password,ModelMap map)
+	public String validateUser(@RequestParam String userEmail ,@RequestParam String userPass,ModelMap map)
 	{
-		User uObj = userService.validateUser(email, password);
+		User uObj = userService.validateUser(userEmail, userPass);
 		
 		if(uObj==null)
 		{
@@ -128,10 +128,15 @@ public class HomeController {
 		}
 	}
 	
-	@RequestMapping(value="/getLogout",method=RequestMethod.GET)
-	public String logout(ModelMap map ) {
-		session.invalidate();
-	return "Login";
-
+	
+	@RequestMapping(value="/homeBuyer",method=RequestMethod.GET)
+	public String buyerHome(ModelMap map ) {
+	return "BuyerPage";
 	}
+	
+	@RequestMapping(value="/homeVendor",method=RequestMethod.GET)
+	public String vendorHome(ModelMap map ) {
+	return "VendorPage";
+	}
+	
 }

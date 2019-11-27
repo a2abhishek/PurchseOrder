@@ -12,7 +12,7 @@
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-   <link href="${css}/style.css" rel="stylesheet">
+   <link href="${css}/login.css" rel="stylesheet">
 
 </head>
 <body>
@@ -20,11 +20,13 @@
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
   <ul class="navbar-nav">
    <li class="nav-item active">
-      <h2 class="nav-link" >Hello ${uObj.userName}</h2>
+      <h3 class="nav-link" >Hello ${uObj.userName}</h3>
     </li>
     <li class="nav-item active">
       <a class="nav-link" href="homeSeller">Home</a>
     </li> 
+            <li class="nav-item"><a class="nav-link" href="getSellerLogout">Logout</a></li>
+    
   </ul>
 </nav>
 

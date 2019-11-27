@@ -39,5 +39,10 @@ public class VendorController {
 	return "ViewVendorProducts";
 
 	}
+	@RequestMapping(value="/getVendorLogout",method=RequestMethod.GET)
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "HomePage";
+      }
 
 }

@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
 <title>Login</title>
  <link href="${css}/login.css" rel="stylesheet">
 </head>
@@ -15,8 +16,8 @@
 		<div class="login">
 		<h1>Login</h1>
 	    	<form method="post" action="signIn">
-	    	<input type="email" name="email" placeholder="Email" required="required" />
-	        <input type="password" name="password" placeholder="Password" required="required" />
+	    	<input type="email" name="userEmail" placeholder="Email" required="required" />
+	        <input type="password" name="userPass" placeholder="Password" required="required" />
 	        <button type="submit" class="btn btn-primary btn-block btn-large">Let me in.</button>
 	        </form>
 	        

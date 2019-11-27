@@ -18,16 +18,18 @@
 	src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+   <link href="${css}/login.css" rel="stylesheet">
+
 </head>
 <body>
-	<div class="container">
-		<h1 style="color: green;">Add Quantity</h1>
+	
+		<h1 style="color: #D98880;">Add Quantity</h1>
 		<f:form action="updateProductQuantity" method="post">
 		<table class="table table-borderless  table table-hover table-dark">
 			<thead>
 				<tr>
-					<th>select the Items</th>
-					<th>select the Quantity</th>
+					<th style="color: #D98880;">select the Items</th>
+					<th style="color: #D98880;">select the Quantity</th>
 
 				</tr>
 			</thead>
@@ -57,6 +59,6 @@
 			</tbody>
 		</table>
 		</f:form>
-	</div>
+	
 	</body>
 </html>

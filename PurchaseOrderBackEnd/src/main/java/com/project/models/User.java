@@ -9,29 +9,34 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name="Users")
 public class User {
-
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="User_Id")
 	private int  userId;
 	
+	@NotEmpty(message="Can not be empty")
 	@Column(name="User_Name")
 	private String userName;
 	
+	@NotEmpty
 	@Column(name="User_Email")
 	private String userEmail;
-			
+	
+	@NotEmpty		
 	@Column(name="User_Address")
 	private String userAddress;
 	
+	
 	@Column(name="User_Mobile")
 	private long userPhone;
-
+	
 	@Column(name="User_IsActive")
 	private String isActive;
 	
@@ -47,6 +52,8 @@ public class User {
 	@Column(name="Updated_By")
 	private String updatedBy;
 	
+	@NotEmpty()
+	@Size(min=4,message="password can not be left empty")
 	@Column(name="User_password")
 	private String userPass;
 	
@@ -156,6 +163,8 @@ public class User {
 				+ ", updatedDate=" + updatedDate + ", createdBy=" + createdBy + ", updatedBy=" + updatedBy
 				+ ", userPass=" + userPass + ", role=" + role + "]";
 	}
+
+
 	
 	
 }
